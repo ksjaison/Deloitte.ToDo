@@ -2,11 +2,14 @@
 {
     using System.Configuration;
     using System.Threading.Tasks;
+    using Deloitte.Task.Web.Models;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Extensions.Configuration;
-    using Deloitte.Task.Web.Models;
 
+    /// <summary>
+    /// Login controller class.
+    /// </summary>
     public class LoginController : Controller
     {
         private readonly UserManager<LoginViewModel> _userManager;

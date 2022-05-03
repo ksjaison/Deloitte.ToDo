@@ -1,10 +1,13 @@
 ﻿namespace Deloitte.Task.Web.Mapper
 {
     using AutoMapper;
-    using Deloitte.Task.DomainModel;
     using Deloitte.Task.DataAccessLayer.Model;
+    using Deloitte.Task.DomainModel;
     using Deloitte.Task.Web.Models;
 
+    /// <summary>
+    /// This class helps auto mapping.
+    /// </summary>
     public class CommonMapper : Profile
     {
         /// <summary>

@@ -5,10 +5,10 @@
     using System.Linq;
     using System.Threading.Tasks;
     using AutoMapper;
-    using Deloitte.Task.DomainModel;
     using Deloitte.Task.BusinessService.Abstractions;
-    using Microsoft.AspNetCore.Mvc;
+    using Deloitte.Task.DomainModel;
     using Deloitte.Task.Web.Models;
+    using Microsoft.AspNetCore.Mvc;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="ToDoItemController"/> class.
@@ -16,7 +16,6 @@
     public class ToDoItemController : Controller
     {
         private readonly ITaskDetailsProvider _taskdetails;
-        //private readonly SignInManager<LoginViewModel>_signInManager;
 
         // Create a field to store the mapper object
         private readonly IMapper _mapper;
@@ -31,15 +30,6 @@
             this._taskdetails = itaskdetails;
             this._mapper = mapper;
         }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ToDoItemController"/> class.
-        /// </summary>
-        /// <param name="signInManager">Sign In manger parameter.</param>
-        //public ToDoItemController(SignInManager<LoginViewModel> signInManager)
-        //{
-        //    this._signInManager = signInManager;
-        //}
 
         // GET: ToDoItems
         public async Task<ActionResult<IEnumerable<ToDoItemViewModel>>> Index()
@@ -145,8 +135,14 @@
             return this.View(model);
         }
 
+        /// <summary>
+        /// Performing delete action.
+        /// </summary>
+        /// <param name="id">Sending task id as parameter.</param>
+        /// <returns>Page return to Task List grid.</returns>
         // POST: ToDoItems/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost]
+        [ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
