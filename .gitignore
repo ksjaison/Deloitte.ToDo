@@ -1,0 +1,14 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/Deloitte.Task/Deloite.Task.BusinessService/bin/Debug/net5.0
+/Deloitte.Task/Deloite.Task.BusinessService/obj
+/Deloitte.Task/Deloite.Task.Controller.UnitTest/bin/Debug/net5.0
+/Deloitte.Task/Deloite.Task.Controller.UnitTest/obj
+/Deloitte.Task/Deloitte.Task.DataAccessLayer/bin/Debug/net5.0
+/Deloitte.Task/Deloitte.Task.DataAccessLayer/obj
+/Deloitte.Task/Deloitte.Task.DomainModel/bin/Debug/net5.0
+/Deloitte.Task/Deloitte.Task.DomainModel/obj
+/Deloitte.Task/Deloitte.Task.Web/bin/Debug/net5.0
+/Deloitte.Task/Deloitte.Task.Web/obj

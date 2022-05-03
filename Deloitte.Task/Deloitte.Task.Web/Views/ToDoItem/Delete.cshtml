@@ -1,0 +1,45 @@
+﻿@using Deloitte.Task.Web.Models
+@model ToDoItemViewModel
+
+
+@{
+    ViewData["Title"] = "Delete";
+}
+<div>
+    <h5>Delete Task</h5>
+    <hr />
+    <form asp-action="Delete">
+    <dl class="row">
+        <dt class = "col-sm-2" hidden="hidden">
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+        <dd class = "col-sm-10" hidden="hidden">
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @*@Html.DisplayNameFor(model => model.TaskName)*@
+            Task Name
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TaskName)
+        </dd>
+        <dt class = "col-sm-2">
+           @* @Html.DisplayNameFor(model => model.TaskDescription)*@
+           Task Description
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TaskDescription)
+        </dd>
+        <dt class = "col-sm-2" >
+            @*@Html.DisplayNameFor(model => model.IsTaskChecked)*@
+            Checked / Unchecked
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IsTaskChecked)
+        </dd>
+    </dl>    
+        <input type="hidden" asp-for="Id"/>
+        <input type="submit" value="Delete" class="btn btn-danger" onclick="return confirm('Are you sure you to delete this Record?')"/> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>
