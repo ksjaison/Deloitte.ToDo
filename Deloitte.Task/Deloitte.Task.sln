@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32228.430
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Deloitte.Task.Web", "Deloitte.Task.Web\Deloitte.Task.Web.csproj", "{6C00CC69-8041-4C8B-B264-1453DE0EC2E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Deloitte.Task.BusinessService", "Deloite.Task.BusinessService\Deloitte.Task.BusinessService.csproj", "{520880A1-7245-4E46-854A-0594E9E5982B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Deloitte.Task.DataAccessLayer", "Deloitte.Task.DataAccessLayer\Deloitte.Task.DataAccessLayer.csproj", "{2884DB97-EBFE-43F3-AE3A-9B67A962E474}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Deloitte.Task.DomainModel", "Deloitte.Task.DomainModel\Deloitte.Task.DomainModel.csproj", "{6C7CA22B-D71D-416E-95BA-896ED39D769F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Deloitte.Task.Controller.UnitTest", "Deloite.Task.Controller.UnitTest\Deloitte.Task.Controller.UnitTest.csproj", "{8CFFD25D-4EA2-42A2-ADAF-D3D55018A02D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6C00CC69-8041-4C8B-B264-1453DE0EC2E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C00CC69-8041-4C8B-B264-1453DE0EC2E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C00CC69-8041-4C8B-B264-1453DE0EC2E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C00CC69-8041-4C8B-B264-1453DE0EC2E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{520880A1-7245-4E46-854A-0594E9E5982B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{520880A1-7245-4E46-854A-0594E9E5982B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{520880A1-7245-4E46-854A-0594E9E5982B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{520880A1-7245-4E46-854A-0594E9E5982B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2884DB97-EBFE-43F3-AE3A-9B67A962E474}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2884DB97-EBFE-43F3-AE3A-9B67A962E474}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2884DB97-EBFE-43F3-AE3A-9B67A962E474}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2884DB97-EBFE-43F3-AE3A-9B67A962E474}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C7CA22B-D71D-416E-95BA-896ED39D769F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C7CA22B-D71D-416E-95BA-896ED39D769F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C7CA22B-D71D-416E-95BA-896ED39D769F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C7CA22B-D71D-416E-95BA-896ED39D769F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CFFD25D-4EA2-42A2-ADAF-D3D55018A02D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CFFD25D-4EA2-42A2-ADAF-D3D55018A02D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CFFD25D-4EA2-42A2-ADAF-D3D55018A02D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CFFD25D-4EA2-42A2-ADAF-D3D55018A02D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DC9379D2-625F-4995-B26D-569E6C47F767}
+	EndGlobalSection
+EndGlobal
