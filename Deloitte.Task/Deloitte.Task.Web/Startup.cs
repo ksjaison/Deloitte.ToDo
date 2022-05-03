@@ -1,23 +1,26 @@
-using System;
-using AutoMapper;
-using Deloitte.Task.DataAccessLayer.Abstractions.Repository;
-using Deloitte.Task.BusinessService;
-using Deloitte.Task.BusinessService.Abstractions;
-using Deloitte.Task.DataAccessLayer.Context;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Deloitte.Task.Web.Data;
-using Deloitte.Task.Web.Mapper;
-using Deloite.Task.DataAccessLayer.Repository;
-using Deloitte.Task.Web.Models;
-
 namespace Deloitte.Task.Web
 {
+    using System;
+    using AutoMapper;
+    using Deloite.Task.DataAccessLayer.Repository;
+    using Deloitte.Task.BusinessService;
+    using Deloitte.Task.BusinessService.Abstractions;
+    using Deloitte.Task.DataAccessLayer.Abstractions.Repository;
+    using Deloitte.Task.DataAccessLayer.Context;
+    using Deloitte.Task.Web.Data;
+    using Deloitte.Task.Web.Mapper;
+    using Deloitte.Task.Web.Models;
+    using Microsoft.AspNetCore.Builder;
+    using Microsoft.AspNetCore.Hosting;
+    using Microsoft.AspNetCore.Identity;
+    using Microsoft.EntityFrameworkCore;
+    using Microsoft.Extensions.Configuration;
+    using Microsoft.Extensions.DependencyInjection;
+    using Microsoft.Extensions.Hosting;
+
+    /// <summary>
+    /// Starp class intialise all services and configurations.
+    /// </summary>
     public class Startup
     {
         /// <summary>
@@ -29,6 +32,9 @@ namespace Deloitte.Task.Web
             this.Configuration = configuration;
         }
 
+        /// <summary>
+        /// Gets Configuration.
+        /// </summary>
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.

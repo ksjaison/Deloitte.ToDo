@@ -1,11 +1,14 @@
 ﻿namespace Deloitte.Task.DataAccessLayer.Context
 {
-    using Deloitte.Task.DomainModel;
     using Deloitte.Task.DataAccessLayer.Abstractions.Context;
     using Deloitte.Task.DataAccessLayer.Model;
+    using Deloitte.Task.DomainModel;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.InMemory.ValueGeneration.Internal;
 
+    /// <summary>
+    /// Master DB context class.
+    /// </summary>
     public class MasterContext : DbContext, IMasterContext
     {
         /// <summary>
@@ -25,16 +28,24 @@
         {
         }
 
-        /// <inheritdoc/>
+        /// <summary>
+        /// Gets or sets Task details.
+        /// </summary>
         public DbSet<TaskDto> TaskDetails { get ; set ; }
 
-        /// <inheritdoc/>
+        /// <summary>
+        /// On config method.
+        /// </summary>
+        /// <param name="optionsBuilder">DB Context option builder.</param>
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseInMemoryDatabase(databaseName: "ToDoListWebApp");
         }
 
-        /// <inheritdoc/>
+        /// <summary>
+        /// OnModelCreating.
+        /// </summary>
+        /// <param name="modelBuilder">Model builder parameter.</param>
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<TaskDetailsDomain>().HasIndex(u => u.Id).IsUnique();
