@@ -8,7 +8,7 @@
     public class Base
     {
         /// <summary>
-        /// Gets or Sets Created By.
+        /// Gets or Sets Created By user.
         /// </summary>
         public string CreatedBy { get; set; }
 
