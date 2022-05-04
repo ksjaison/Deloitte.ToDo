@@ -1,9 +1,11 @@
 namespace Deloite.ToDo.Controller.UnitTest
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using AutoMapper;
-    using Deloitte.Task.BusinessService.Abstractions;
+    using Deloitte.Task.DomainModel;
+    using Deloitte.Task.DomainModel.Abstractions;
     using Deloitte.Task.Web.Controllers;
     using Deloitte.Task.Web.Models;
     using Microsoft.AspNetCore.Mvc;
@@ -43,17 +45,39 @@ namespace Deloite.ToDo.Controller.UnitTest
         {
             // Arrange
             var mockRepo = new Mock<ITaskDetailsProvider>();
-            mockRepo.Setup(repo => repo.GetTaskDetails());
-            var controller = new ToDoItemController(mockRepo.Object,_mapper);
+            mockRepo.Setup(repo => repo.GetTaskDetails().ToList())
+                                    .Returns(GetTaskDetails_Test());
+            var controller = new ToDoItemController(mockRepo.Object, this._mapper);
 
             // Act
             var result = controller.Index();
 
             // Assert
             var viewResult = Assert.IsType<ViewResult>(result);
+
             var model = Assert.IsAssignableFrom<IEnumerable<ToDoItemViewModel>>(
-                viewResult.ViewData.Model);
+                    viewResult.ViewData.Model);
             Assert.Equal(2, model.Count());
+        }
+
+        private List<TaskDetailsDomain> GetTaskDetails_Test()
+        {
+            var taskDetailsDomain = new List<TaskDetailsDomain>();
+            taskDetailsDomain.Add(new TaskDetailsDomain()
+            {
+                Id = 1,
+                TaskName = "Task Name 1",
+                TaskDescription = "Task Desc 1",
+                LastUpdatedDate = new DateTime(2016, 7, 2),
+            });
+            taskDetailsDomain.Add(new TaskDetailsDomain()
+            {
+                Id = 1,
+                TaskName = "Task Name 1",
+                TaskDescription = "Task Desc 1",
+                LastUpdatedDate = new DateTime(2016, 7, 2),
+            });
+            return taskDetailsDomain;
         }
     }
 }

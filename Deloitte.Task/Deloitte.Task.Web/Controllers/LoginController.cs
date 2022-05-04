@@ -1,15 +1,18 @@
 ﻿namespace Deloitte.Task.Web.Controllers
 {
-    using System.Configuration;
-    using System.Threading.Tasks;
     using Deloitte.Task.Web.Models;
+    using Microsoft.AspNetCore.Authorization;
+    using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Extensions.Configuration;
+    using System.Threading.Tasks;
 
     /// <summary>
     /// Login controller class.
     /// </summary>
+    ///
+
     public class LoginController : Controller
     {
         private readonly UserManager<LoginViewModel> _userManager;
@@ -23,7 +26,8 @@
         /// <param name="signInManager">User signIn parameter.</param>
         public LoginController(
                    UserManager<LoginViewModel> userManager,
-                   SignInManager<LoginViewModel> signInManager, IConfiguration configuration)
+                   SignInManager<LoginViewModel> signInManager,
+                   IConfiguration configuration)
         {
             this._userManager = userManager;
             this._signInManager = signInManager;
@@ -32,7 +36,7 @@
             this.GetUserDetails(
                 this._configuration.GetSection("AppSettings").GetSection("Id").Value,
                 this._configuration.GetSection("AppSettings").GetSection("UserName").Value,
-                this._configuration.GetSection("AppSettings").GetSection("Password").Value);
+                this._configuration.GetSection("AppSettings").GetSection("Password").Value);            
         }
 
         private void GetUserDetails(string userId, string userName,  string passWord)
@@ -55,11 +59,6 @@
         [HttpGet]
         public IActionResult Login()
         {
-            if (this._signInManager.IsSignedIn(this.User))
-            {
-                return this.RedirectToAction("Index", "ToDoItem");
-            }
-
             return this.View();
         }
 
@@ -67,6 +66,7 @@
         [Route("Home")]
         [Route("Home/Index")]
         [HttpPost]
+
         public async Task<IActionResult> Login(LoginViewModel appUser)
         {
             var user = await this._userManager.FindByNameAsync(appUser.Name);
@@ -77,6 +77,7 @@
 
                 if (signInResult.Succeeded)
                 {
+                    this.HttpContext.Session.SetString("userName", user.ToString());
                     return this.RedirectToAction("Index", "ToDoItem");
                 }
 
@@ -84,12 +85,6 @@
             }
 
             return this.RedirectToAction("Index", "Home");
-        }
-
-        public async Task<IActionResult> LogOut(string Name, string Password)
-        {
-            await this._signInManager.SignOutAsync();
-            return this.RedirectToAction("Index");
         }
     }
 }

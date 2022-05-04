@@ -1,4 +1,4 @@
-﻿namespace Deloitte.Task.BusinessService.Abstractions
+﻿namespace Deloitte.Task.DomainModel.Abstractions
 {
     using System.Collections.Generic;
     using Deloitte.Task.DomainModel;
