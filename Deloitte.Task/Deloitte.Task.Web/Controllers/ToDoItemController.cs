@@ -5,9 +5,10 @@
     using System.Linq;
     using System.Threading.Tasks;
     using AutoMapper;
-    using Deloitte.Task.BusinessService.Abstractions;
     using Deloitte.Task.DomainModel;
+    using Deloitte.Task.DomainModel.Abstractions;
     using Deloitte.Task.Web.Models;
+    using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc;
 
     /// <summary>
@@ -31,9 +32,20 @@
             this._mapper = mapper;
         }
 
+        private string GetSessionString()
+        {
+            string strUserName = this.HttpContext.Session.GetString("userName");
+            return strUserName;
+        }
+
         // GET: ToDoItems
         public async Task<ActionResult<IEnumerable<ToDoItemViewModel>>> Index()
         {
+            if (this.GetSessionString() == null)
+            {
+                return this.RedirectToAction("Index", "Home");
+            }
+
             var taskDetails = this._taskdetails.GetTaskDetails().ToList();
 
             if (taskDetails.Any())
@@ -48,6 +60,11 @@
         // GET: ToDoItems/Create
         public IActionResult Create()
         {
+            if (this.GetSessionString() == null)
+            {
+                return this.RedirectToAction("Index", "Home");
+            }
+
             return this.View();
         }
 
@@ -64,6 +81,11 @@
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("TaskName,TaskDescription,IsTaskChecked")] ToDoItemViewModel todoitems)
         {
+            if (this.GetSessionString() == null)
+            {
+                return this.RedirectToAction("Index", "Home");
+            }
+
             if (this.ModelState.IsValid)
             {
                 var model = this._mapper.Map<ToDoItemViewModel, TaskDetailsDomain>(todoitems);
@@ -78,6 +100,11 @@
         // GET: ToDoItems/Edit/5
         public async Task<IActionResult> Edit(int id)
         {
+            if (this.GetSessionString() == null)
+            {
+                return this.RedirectToAction("Index", "Home");
+            }
+
             if (id == null)
             {
                 return this.NotFound();
@@ -99,6 +126,11 @@
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("TaskName,TaskDescription,IsTaskChecked")] ToDoItemViewModel todoitems)
         {
+            if (this.GetSessionString() == null)
+            {
+                return this.RedirectToAction("Index", "Home");
+            }
+
             if (id == null)
             {
                 return this.NotFound();
@@ -121,6 +153,11 @@
         // GET: ToDoItems/Delete/5
         public async Task<IActionResult> Delete(int id)
         {
+            if (this.GetSessionString() == null)
+            {
+                return this.RedirectToAction("Index", "Home");
+            }
+
             if (id == null)
             {
                 return this.NotFound();
@@ -146,6 +183,11 @@
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+            if (this.GetSessionString() == null)
+            {
+                return this.RedirectToAction("Index", "Home");
+            }
+
             if (id == null)
             {
                 return this.NotFound();

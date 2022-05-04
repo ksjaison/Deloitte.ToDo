@@ -12,3 +12,8 @@
 /Deloitte.Task/Deloitte.Task.DomainModel/obj
 /Deloitte.Task/Deloitte.Task.Web/bin/Debug/net5.0
 /Deloitte.Task/Deloitte.Task.Web/obj
+/Deloitte.Task/Deloite.Task.BusinessService/bin/Release/net5.0
+/Deloitte.Task/Deloite.Task.Controller.UnitTest/bin/Release/net5.0
+/Deloitte.Task/Deloitte.Task.DataAccessLayer/bin/Release/net5.0
+/Deloitte.Task/Deloitte.Task.DomainModel/bin/Release/net5.0
+/Deloitte.Task/Deloitte.Task.Web/bin/Release/net5.0

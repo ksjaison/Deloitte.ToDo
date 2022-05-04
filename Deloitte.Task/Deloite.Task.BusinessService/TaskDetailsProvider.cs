@@ -1,9 +1,9 @@
 ﻿namespace Deloitte.Task.BusinessService
 {
     using System.Collections.Generic;
-    using Deloitte.Task.BusinessService.Abstractions;
     using Deloitte.Task.DataAccessLayer.Abstractions.Repository;
     using Deloitte.Task.DomainModel;
+    using Deloitte.Task.DomainModel.Abstractions;
 
     /// <summary>
     /// This Business service or provider class which pass value to Repository.

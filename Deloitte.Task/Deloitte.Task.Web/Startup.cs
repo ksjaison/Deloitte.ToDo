@@ -4,9 +4,9 @@ namespace Deloitte.Task.Web
     using AutoMapper;
     using Deloite.Task.DataAccessLayer.Repository;
     using Deloitte.Task.BusinessService;
-    using Deloitte.Task.BusinessService.Abstractions;
     using Deloitte.Task.DataAccessLayer.Abstractions.Repository;
     using Deloitte.Task.DataAccessLayer.Context;
+    using Deloitte.Task.DomainModel.Abstractions;
     using Deloitte.Task.Web.Data;
     using Deloitte.Task.Web.Mapper;
     using Deloitte.Task.Web.Models;
@@ -56,8 +56,8 @@ namespace Deloitte.Task.Web
             services.ConfigureApplicationCookie(Opt =>
             {
                 Opt.Cookie.Name = "ToDoListWebAppCookie";
-                Opt.LoginPath = "/Home/Login"; // User defined login path
-                Opt.ExpireTimeSpan = TimeSpan.FromMinutes(10);
+                Opt.LoginPath = "/Home/Index"; // User defined login path
+                Opt.ExpireTimeSpan = TimeSpan.FromMinutes(5);
             });
 
             services.AddIdentity<LoginViewModel, IdentityRole>(Opt =>
@@ -74,7 +74,14 @@ namespace Deloitte.Task.Web
 
             services.AddScoped<AppDBContext>();
             services.AddScoped<MasterContext>();
+
             services.AddControllersWithViews();
+            services.AddAuthorization();
+            services.AddSession();
+            services.AddDistributedMemoryCache(); // Adds a default in-memory implementation of IDistributedCache
+            services.AddSession(options => {
+                options.IdleTimeout = TimeSpan.FromMinutes(10);
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -92,11 +99,10 @@ namespace Deloitte.Task.Web
                 app.UseHsts();
             }
 
+            app.UseSession();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
             app.UseRouting();
-
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
